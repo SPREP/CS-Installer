@@ -237,7 +237,7 @@ function cs_up()
 
     [[ -n "$FIX" ]] && fix_perms
 
-    docker-compose -f "${CSTATION_COMPOSE}" up -d
+    docker compose -f "${CSTATION_COMPOSE}" up -d
     echo
     echo Climate Station is up.
     echo
@@ -247,13 +247,13 @@ function cs_up()
         sleep 10
         success "Ready"
 
-        docker-compose -f "${CSTATION_COMPOSE}" exec -T postgres bash /install_update_db.sh
+        docker compose -f "${CSTATION_COMPOSE}" exec -T postgres bash /install_update_db.sh
     fi
 }
 
 function cs_down()
 {
-        docker-compose -f "${CSTATION_COMPOSE}" down
+        docker compose -f "${CSTATION_COMPOSE}" down
 }
 
 
